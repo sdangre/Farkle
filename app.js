@@ -1,8 +1,14 @@
 
+let sumEl= document.getElementById('sum')
+let calculateButton=document.getElementById('calculate')
 let rollDiceButton=document.getElementById('roll')
+let score1El = 0
+let score2El = 0
+let score3El = 0 
+let score4El = 0
+let score5El = 0
+let score6El = 0
 
-//Trying to add
-let addEl= document.getElementById('add')
 
 //All of the Dice images
 let D1Face1El=document.getElementById('D1Face1')
@@ -136,6 +142,7 @@ let score2El = getRandomInt(6) + 1
     //D2
     if (score2El === 1){
         D2Face1El.classList.remove('remove')
+        score6El= 100
     }
     if (score2El === 2){
         D2Face2El.classList.remove('remove')
@@ -159,6 +166,7 @@ let score3El = getRandomInt(6) + 1
     //D3
     if (score3El === 1){
         D3Face1El.classList.remove('remove')
+        score6El= 100
     }
     if (score3El === 2){
         D3Face2El.classList.remove('remove')
@@ -182,6 +190,7 @@ let score4El = getRandomInt(6) + 1
     //D4
     if (score4El === 1){
         D4Face1El.classList.remove('remove')
+        score6El= 100
     }
     if (score4El === 2){
         D4Face2El.classList.remove('remove')
@@ -205,6 +214,7 @@ let score5El = getRandomInt(6) + 1
     //D5
     if (score5El === 1){
         D5Face1El.classList.remove('remove')
+        score6El= 100
     }
     if (score5El === 2){
         D5Face2El.classList.remove('remove')
@@ -228,6 +238,7 @@ let score6El = getRandomInt(6) + 1
     //D5
     if (score6El === 1){
         D6Face1El.classList.remove('remove')
+        score6El= 100
     }
     if (score6El === 2){
         D6Face2El.classList.remove('remove')
@@ -262,15 +273,16 @@ function resetDice(){
 
 
 
-//Set Dice Aside
+//Set Dice Aside (removes the entire dice)
 function removeDice1(){
     D1Enabled = false
-    D1Face1El.classList.add('remove')
+    if (D1Face1El){
+        score1El = 100
+    }
     D1Face2El.classList.add('remove')
     D1Face3El.classList.add('remove')
     D1Face4El.classList.add('remove')
     D1Face5El.classList.add('remove')
-    D1Face6El.classList.add('remove')
 }
 
 D1Face1El.addEventListener('click', removeDice1)
@@ -282,7 +294,9 @@ D1Face6El.addEventListener('click', removeDice1)
 
 function removeDice2(){
     D2Enabled = false
-
+    if (D2Face1El){
+        score2El = 100
+    }
     D2Face1El.classList.add('remove')
     D2Face2El.classList.add('remove')
     D2Face3El.classList.add('remove')
@@ -300,7 +314,9 @@ D2Face6El.addEventListener('click', removeDice2)
 
 function removeDice3(){
     D3Enabled = false
-
+    if (D3Face1El){
+        score3El = 100
+    }
     D3Face1El.classList.add('remove')
     D3Face2El.classList.add('remove')
     D3Face3El.classList.add('remove')
@@ -318,7 +334,9 @@ D3Face6El.addEventListener('click', removeDice3)
 
 function removeDice4(){
     D4Enabled = false
-
+    if (D4Face1El){
+        score4El = 100
+    }
     D4Face1El.classList.add('remove')
     D4Face2El.classList.add('remove')
     D4Face3El.classList.add('remove')
@@ -336,7 +354,9 @@ D4Face6El.addEventListener('click', removeDice4)
 
 function removeDice5(){
     D5Enabled = false
-
+    if (D5Face1El){
+        score5El = 100
+    }
     D5Face1El.classList.add('remove')
     D5Face2El.classList.add('remove')
     D5Face3El.classList.add('remove')
@@ -354,7 +374,9 @@ D5Face6El.addEventListener('click', removeDice5)
 
 function removeDice6(){
     D6Enabled = false
-
+    if (D6Face1El){
+        score6El = 100
+    }
     D6Face1El.classList.add('remove')
     D6Face2El.classList.add('remove')
     D6Face3El.classList.add('remove')
@@ -369,3 +391,10 @@ D6Face3El.addEventListener('click', removeDice6)
 D6Face4El.addEventListener('click', removeDice6)
 D6Face5El.addEventListener('click', removeDice6)
 D6Face6El.addEventListener('click', removeDice6)
+
+
+function addNumbers(){
+sumEl.innerHTML = score1El + score2El + score3El + score4El + score5El + score6El
+}
+
+calculateButton.addEventListener('click', addNumbers)
